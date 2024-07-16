@@ -1,0 +1,17 @@
+services:
+
+  recruit:
+    container_name: recruit_php
+    image: recruit/php
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        DOCKER_BUILDKIT: 1
+    volumes:
+      - .:/srv:cached
+    tty: true
+    deploy:
+      resources:
+        limits:
+          memory: 512M
